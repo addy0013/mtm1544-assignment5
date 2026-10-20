@@ -1,0 +1,188 @@
+/* MTM1544 Week 5: stylesheet.*/
+
+   /*A3: adding web font*/
+   @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;800&display=swap');
+   
+  * { box-sizing: border-box; }
+   
+   
+   :root{
+      /*A3: HSL 4 step color pallete*/
+      --blue190: hsl(203, 96%, 90%);
+      --blue170: hsl(203, 96%, 70%);
+      --blue150: hsl(203, 96%, 50%);
+      --blue130: hsl(203, 96%, 30%);
+
+      /*oklch looks more evenly spaced than HSL*/
+      --blue-ok90: oklch(0.9 0.127 246);
+      --blue-ok70: oklch(0.7 0.127 246);
+      --blue-ok50: oklch(0.5 0.127 246);
+      --blue-ok30: oklch(0.3 0.127 246);
+   }
+
+   /*A3: body font-stack, font size and line height*/
+   body {
+      /*font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;*/
+      font-family: "Be Vietnam Pro", sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+   }
+
+   /*A3:adding font size, line height & text-wrap to headings*/
+   h1 {
+      /*background-color: #d8d2e1;*/
+      color: var(--blue-ok30);
+      font-size: 2.5rem;
+      line-height: 1.1;
+      text-wrap: balance;
+      text-align: center;
+   }
+
+
+   /*paragraph selector with ebony colour + line-height of 2*/
+   p,li {
+      color: #4A5043;
+      line-height: 2;
+   }
+
+   
+   /*heading 2 selector with dark crimson color*/
+   /*A3:adding font size, line height & text-wrap to headings*/
+   h2{
+      color: #490E11;
+      font-size: 2rem;
+      line-height: 1.2;
+      text-wrap: balance;
+   }
+
+   /*A3: adding web font*/
+   /* Group of heading 1&2 with sans-serif font*/
+   /*h1, h2{
+      font-family: "Be Vietnam Pro", sans-serif;
+      font-weight: 800;
+      font-style: normal;
+   }*/
+
+   /* .intro paragraph styled with dark crimson color.*/
+
+   /*A2: background colour, a visible border, comfortable padding, 
+   a border-radius, and a bottom margin separating it 
+   from the next section*/
+   .intro{
+      color: black;
+      background-color: var(--blue-ok90);
+      border: 2px solid var(--blue-ok30);
+      padding: 30px;
+      border-radius: 8px;
+      margin-bottom: 50px;
+      width: 1200px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+   }
+
+   /*A2: testing margin collapse, applied in HTML*/
+     /*#bottom-margin{
+        margin-bottom: 60px;
+     }
+
+     #top-margin{
+        margin-top: 20px;
+     }*/
+
+
+   /* #summit heading styled with left border and padding */
+   #summit{
+      border-left: 4px solid #4A5043;
+      padding-left: 0.5rem;
+   }
+
+   /* second rule targeting heading 2 with color teal */
+   h2{
+      color: var(--blue-ok50);
+   }
+
+   /*A2: code for aspect ratio*/
+   .frame{
+      aspect-ratio: 16 / 9;
+      width: 100%;
+   }
+
+
+   /*A3: adding one interactive colour as a button*/
+   button {
+      background-color: var(--blue-ok90);
+      color: black;
+      padding: 10px;
+      border-radius: 6px;
+}
+
+   /*A4: giving every link a hover and focus state*/
+   button:hover {
+      background-color: color-mix(in oklch, var(--blue-ok70) 85%, black);
+   }
+
+   /*A4: confirmed using only Tab on keyboard*/
+   button:focus{
+      outline: 3px solid orange;
+      outline-offset: 2px;
+   }
+
+   li {
+      list-style: none;
+      width: 100%;
+      padding: 6px 12px; 
+   }
+
+   /*A4: using :nth-child(odd)*/
+   li:nth-child(odd){
+      background-color: var(--blue190);
+   }
+
+   /*A4: using first-child()*/
+   li:first-child{
+       font-weight: 700;
+       border-bottom: 2px solid var(--blue-ok30);
+   }
+
+   /*A4: using ::before to insert symbol pointing down because it is purely decorative
+   and there is no need for assistive technology to read it out since the prompt
+   clearly states to scroll down */
+
+   .prompt::before{
+      content: "↓";
+   }
+ 
+   /*A4: running specificity experiment*/
+   /*Prediction: the ID will win because it has higher specificity than a selector and than a class*/
+   /*Confirmed with Dev Tools afterwards*/
+   blockquote{
+      color: var(--blue-ok30);
+   }
+
+   .review{
+      color: var(--blue-ok50);
+   }
+
+   #highlight{
+      color: var(--blue-ok70);
+   }
+
+   /*A4: running specificity experiment with only classes*/
+   /*Since all classes were used, the last class to be written wins which is much easier to reason about
+   due to the source order*/
+   .update{
+      color: var(--blue-ok30);
+   }
+   .highlight{
+      color: var(--blue-ok70);
+   }
+
+   /*A4: rewriting h1, h2 groups using where()*/
+   /*is() adds specificity based on the most specific argument while where() does not. 
+   This is why is() would have scored differently*/
+   :where(h1, h2){
+      font-family: "Be Vietnam Pro", sans-serif;
+      font-weight: 800;
+      font-style: normal;
+   }
