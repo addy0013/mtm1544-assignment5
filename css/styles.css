@@ -186,3 +186,25 @@
       font-weight: 800;
       font-style: normal;
    }
+
+   /* A5: Styling Header & Nav */
+   .site-header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+   .nav{
+      display: flex;
+      gap: 22px;
+   }
+
+   .nav a {
+      color: var(--blue-ok30);
+      text-decoration: none;
+   }
+
+   .nav a:hover, .nav a:focus {
+      color: var(--blue-ok70);
+      text-decoration: underline;  
+   }
