@@ -75,7 +75,7 @@
       padding: 30px;
       border-radius: 8px;
       margin-bottom: 50px;
-      width: 1200px;
+      width: 100%;
       text-align: center;
       margin-left: auto;
       margin-right: auto;
@@ -207,4 +207,17 @@
    .nav a:hover, .nav a:focus {
       color: var(--blue-ok70);
       text-decoration: underline;  
+   }
+
+   /* Styling Card Row */
+   .routes{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+   }
+
+   /* Layout starts looking cramped near 500px */
+   .card{
+      width:30%;
+      padding: 0.5em;
    }
